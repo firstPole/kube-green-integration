@@ -1,9 +1,10 @@
 # Kubernetes Power Efficiency with Kube-Green
 
-![Build Status](https://img.shields.io/github/workflow/status/yourusername/yourrepository/CI)
-![License](https://img.shields.io/github/license/yourusername/yourrepository)
-![Version](https://img.shields.io/github/release/yourusername/yourrepository)
-![Contributors](https://img.shields.io/github/contributors/yourusername/yourrepository)
+![CI Status](https://img.shields.io/github/workflow/status/firstPole/kube-green-integration/CI)
+![License](https://img.shields.io/github/license/firstPole/kube-green-integration)
+![Issues](https://img.shields.io/github/issues/firstPole/kube-green-integration)
+![Forks](https://img.shields.io/github/forks/firstPole/kube-green-integration)
+![Stars](https://img.shields.io/github/stars/firstPole/kube-green-integration)
 
 This repository demonstrates the integration of **kube-green** into a production-ready Kubernetes cluster to optimize energy consumption by dynamically scaling workloads. By leveraging **kube-green**, organizations can significantly reduce the carbon footprint of their infrastructure without compromising the performance of mission-critical applications.
 
