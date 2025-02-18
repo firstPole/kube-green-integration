@@ -32,12 +32,16 @@ Ensure Minikube is installed and start the cluster:
 ```bash
 minikube start
 This will create a local Kubernetes environment to simulate production-like workloads.
+```
 
 ###  Step 2: Install kube-greenn
 Add the kube-green Helm repository and install kube-green:
+```bash
+
 helm repo add kube-green https://kube-green.github.io/helm-charts
 helm repo update
 helm install kube-green kube-green/kube-green --namespace kube-green --create-namespace
+```
 This will deploy kube-green into the kube-green namespace and allow it to start optimizing your cluster's energy usage.
 
 ### Step 3: Deploy Production Workloads
@@ -48,27 +52,33 @@ Create a deployment for your application workloads by applying the following Kub
 deployment.yaml: Defines the Kubernetes Deployment for your application. This will manage the pods and their scaling requirements.
 service.yaml: Exposes the application internally or externally depending on the service type.
 Apply the resources:
+```bash
 kubectl apply -f k8s/deployment.yaml
 kubectl apply -f k8s/service.yaml
+```
 ### Step 4: Monitor Energy Optimization
 Kube-green will automatically scale down nodes when they are underutilized, and you can monitor its actions through the kube-green pod logs:
 kubectl logs -n kube-green <kube-green-pod-name>
 You can also view the status of your nodes and their energy consumption by running the following command:
+```bash
 kubectl get nodes
 Kube-green ensures that nodes with minimal workloads are powered down, reducing overall energy consumption.
-
+```
 ### Monitoring and Troubleshooting
 Kube-green provides logs that can be accessed using kubectl to monitor the optimization process. Here are some useful commands for managing and troubleshooting:
 
 To view logs for kube-green:
-
+```bash
 kubectl logs -n kube-green <kube-green-pod-name>
+```
 To list the current nodes and their utilization:
-
+```bash
 kubectl get nodes
+```
 To check the status of the deployed application:
-
+```bash
 kubectl get pods
+```
 To troubleshoot issues, check the logs for both your application and kube-green to ensure nodes are being scaled down appropriately.
 
 ### Key Benefits
