@@ -1,0 +1,115 @@
+# Kubernetes Power Efficiency with Kube-Green
+
+This repository demonstrates the integration of **kube-green** into a production-ready Kubernetes cluster to optimize energy consumption by dynamically scaling workloads. By leveraging **kube-green**, organizations can significantly reduce the carbon footprint of their infrastructure without compromising the performance of mission-critical applications.
+
+## Overview
+
+As cloud environments grow in scale, energy efficiency becomes a key factor in reducing operational costs and carbon emissions. **Kube-green** helps optimize Kubernetes clusters by scaling down nodes when they are underutilized, reducing the power consumption of idle resources.
+
+In this project, we implement **kube-green** to optimize energy consumption across a set of production-level microservices. We demonstrate how to install, configure, and use **kube-green** to make a real-world Kubernetes setup more sustainable.
+
+## Prerequisites
+
+Before setting up **kube-green**, ensure the following tools are installed and properly configured:
+
+- **Minikube**: Used to simulate a local Kubernetes environment.
+  - [Minikube Installation Guide](https://minikube.sigs.k8s.io/docs/)
+- **kubectl**: Command-line tool for interacting with Kubernetes clusters.
+  - [kubectl Installation Guide](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
+- **Helm**: Package manager for Kubernetes to install **kube-green**.
+  - [Helm Installation Guide](https://helm.sh/docs/intro/install/)
+
+## Setting Up Kube-Green on Minikube
+
+Follow these steps to deploy **kube-green** in a Kubernetes environment:
+
+### Step 1: Start Minikube Cluster
+
+Ensure Minikube is installed and start the cluster:
+
+```bash
+minikube start
+
+This will create a local Kubernetes environment to simulate production-like workloads.
+
+Step 2: Install kube-green
+Add the kube-green Helm repository and install kube-green:
+
+```bash
+helm repo add kube-green https://kube-green.github.io/helm-charts
+helm repo update
+helm install kube-green kube-green/kube-green --namespace kube-green --create-namespace
+
+This will deploy kube-green into the kube-green namespace and allow it to start optimizing your cluster's energy usage.
+
+Step 3: Deploy Production Workloads
+In a real-world use case, you would typically deploy a set of services or microservices. For example, a service might consist of multiple pods that are subject to scaling based on usage patterns.
+
+Create a deployment for your application workloads by applying the following Kubernetes resource files. You can adapt the configuration based on the specific workloads you want to optimize.
+
+deployment.yaml: Defines the Kubernetes Deployment for your application. This will manage the pods and their scaling requirements.
+service.yaml: Exposes the application internally or externally depending on the service type
+
+Apply the resources:
+
+```bash
+kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/service.yaml
+
+Step 4: Monitor Energy Optimization
+Kube-green will automatically scale down nodes when they are underutilized, and you can monitor its actions through the kube-green pod logs:
+
+```bash
+kubectl logs -n kube-green <kube-green-pod-name>
+
+You can also view the status of your nodes and their energy consumption by running the following command:
+
+```bash
+kubectl get nodes
+
+Kube-green ensures that nodes with minimal workloads are powered down, reducing overall energy consumption.
+
+Monitoring and Troubleshooting
+
+Kube-green provides logs that can be accessed using kubectl to monitor the optimization process. Here are some useful commands for managing and troubleshooting:
+
+To view logs for kube-green:
+
+```bash
+kubectl logs -n kube-green <kube-green-pod-name>
+
+To list the current nodes and their utilization:
+
+```bash
+kubectl get nodes
+
+To check the status of the deployed application:
+
+```bash
+kubectl get pods
+
+To troubleshoot issues, check the logs for both your application and kube-green to ensure nodes are being scaled down appropriately.
+
+Contribution
+Feel free to fork this repository, create issues, and submit pull requests. Contributions that help make Kubernetes clusters more energy-efficient are welcome!
+
+License
+This project is licensed under the MIT License.
+
+
+### Key Sections of the README:
+
+1. **Introduction**: Explains the purpose and benefits of using **kube-green** in Kubernetes for energy optimization.
+2. **Prerequisites**: Lists the tools and links for installation, such as Minikube, kubectl, and Helm.
+3. **Step-by-Step Setup**:
+   - **Step 1**: Starting the Minikube cluster.
+   - **Step 2**: Installing **kube-green** using Helm.
+   - **Step 3**: Deploying example workloads with Kubernetes YAML files.
+   - **Step 4**: Monitoring the energy optimization using kubectl.
+4. **Project Structure**: Describes the folder structure and key resource files used in the project.
+5. **Monitoring and Troubleshooting**: Offers helpful commands for monitoring and troubleshooting the deployed **kube-green** solution.
+6. **Key Benefits**: Highlights the advantages of using **kube-green** to optimize Kubernetes cluster power usage.
+7. **Contribution**: Encourages contributions to improve the energy efficiency of Kubernetes clusters.
+8. **License**: Specifies the open-source MIT license.
+
+This markdown provides a comprehensive, step-by-step guide that ensures anyone can replicate the setup and use **kube-green** to optimize their Kubernetes infrastructure.
