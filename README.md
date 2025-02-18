@@ -1,3 +1,11 @@
+# My Awesome Project
+
+[![Build Status](https://img.shields.io/badge/Build-Passing-green)](https://your-ci-cd-url.com)
+[![Code Coverage](https://img.shields.io/badge/Coverage-95%-brightgreen)](https://your-code-coverage-url.com)
+[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+
+This is a description of my project...
+
 # Kubernetes Power Efficiency with Kube-Green
 
 This repository demonstrates the integration of **kube-green** into a production-ready Kubernetes cluster to optimize energy consumption by dynamically scaling workloads. By leveraging **kube-green**, organizations can significantly reduce the carbon footprint of their infrastructure without compromising the performance of mission-critical applications.
