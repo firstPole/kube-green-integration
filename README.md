@@ -1,8 +1,12 @@
-# My Awesome Project
+# Kubernetes Power Efficiency with Kube-Green
 
-[![Build Status](https://img.shields.io/badge/Build-Passing-green)](https://your-ci-cd-url.com)
-[![Code Coverage](https://img.shields.io/badge/Coverage-95%-brightgreen)](https://your-code-coverage-url.com)
-[![License](https://img.shields.io/badge/License-MIT-blue)](LICENSE)
+![Build Status](https://img.shields.io/github/workflow/status/yourusername/yourrepository/CI)
+![License](https://img.shields.io/github/license/yourusername/yourrepository)
+![Version](https://img.shields.io/github/release/yourusername/yourrepository)
+![Contributors](https://img.shields.io/github/contributors/yourusername/yourrepository)
+
+This repository demonstrates the integration of **kube-green** into a production-ready Kubernetes cluster to optimize energy consumption by dynamically scaling workloads. By leveraging **kube-green**, organizations can significantly reduce the carbon footprint of their infrastructure without compromising the performance of mission-critical applications.
+
 
 This is a description of my project...
 
